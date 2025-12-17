@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DS Priority Guide - Design System</title>
+<link rel="stylesheet" href="ds_styles.css" />
+<script src="header.js"></script>
+<style>
+  .hero-landing {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    text-align: center;
+  }
+
+  .hero-landing__title {
+    font-size: 32px;
+    margin: 0 0 var(--spacing-md) 0;
+    font-weight: 700;
+  }
+
+  .hero-landing__lead {
+    font-size: 16px;
+    color: var(--gray-700);
+    margin: 0 0 var(--spacing-2xl) 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-landing__cta {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .blocks-grid {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .block-card {
+    background: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    padding: var(--spacing-xl);
+    text-decoration: none;
+    color: var(--gray-900);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .block-card:hover {
+    border-color: var(--gray-900);
+    background: var(--gray-200);
+  }
+
+  .block-card__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .block-card__desc {
+    font-size: 14px;
+    color: var(--gray-700);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .block-card__variants {
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-top: auto;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--gray-300);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-600);
+    margin: var(--spacing-2xl) 0 var(--spacing-lg) 0;
+  }
+
+  .features {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+  }
+
+  .feature {
+    text-align: center;
+  }
+
+  .feature__title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 var(--spacing-xs) 0;
+  }
+
+  .feature__desc {
+    font-size: 13px;
+    color: var(--gray-700);
+    margin: 0;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div id="header-root"></div>
+
+<main>
+  <section class="hero-landing">
+    <h1 class="hero-landing__title">Design System Priority Guide</h1>
+    <p class="hero-landing__lead">
+      Sistema di componenti minimalista per rappresentare la struttura logica dei blocchi in un approccio content-first. 
+      Perfetto per priority guides e wireframe strutturati.
+    </p>
+    <div class="hero-landing__cta">
+      <a class="btn" href="docs.html">Documentazione</a>
+      <a class="btn btn--muted" href="blocco_hero.html">Vedi Blocchi</a>
+    </div>
+  </section>
+
+  <div class="section-title">Blocchi Disponibili</div>
+
+  <section class="blocks-grid">
+    <a href="blocco_hero.html" class="block-card">
+      <h2 class="block-card__title">Hero</h2>
+      <p class="block-card__desc">
+        Blocco principale per header, landing page e chiamate all'azione prominenti.
+      </p>
+      <div class="block-card__variants">
+        3 varianti: Standard, Compact, Featured
+      </div>
+    </a>
+
+    <a href="blocco_banner.html" class="block-card">
+      <h2 class="block-card__title">Banner</h2>
+      <p class="block-card__desc">
+        Blocco per promozioni, prodotti e annunci con media e CTA.
+      </p>
+      <div class="block-card__variants">
+        3 varianti: Standard, Compact, Featured
+      </div>
+    </a>
+
+    <a href="blocco_card.html" class="block-card">
+      <h2 class="block-card__title">Card</h2>
+      <p class="block-card__desc">
+        Blocco per griglie di contenuti: articoli, prodotti, anteprime.
+      </p>
+      <div class="block-card__variants">
+        3 varianti: Standard, Compact, Featured
+      </div>
+    </a>
+  </section>
+
+  <div class="section-title">Caratteristiche Principali</div>
+
+  <section class="features">
+    <div class="feature">
+      <h3 class="feature__title">Content-First</h3>
+      <p class="feature__desc">
+        Focus sulla gerarchia dell'informazione senza distrazioni visuali
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3 class="feature__title">Varianti Leggere</h3>
+      <p class="feature__desc">
+        Ogni variante richiede ~1/3 dello sforzo del blocco base
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3 class="feature__title">Live Editing</h3>
+      <p class="feature__desc">
+        Editor integrato per modificare dati in tempo reale
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3 class="feature__title">Responsive</h3>
+      <p class="feature__desc">
+        Layout ottimizzato per desktop, tablet e mobile
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3 class="feature__title">Framework Agnostic</h3>
+      <p class="feature__desc">
+        HTML/CSS puro, integrabile ovunque
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3 class="feature__title">Schema & Data</h3>
+      <p class="feature__desc">
+        Struttura dati documentata e copiabile
+      </p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

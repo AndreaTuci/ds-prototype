@@ -3,6 +3,7 @@ const headerData = {
   brand: "DS Priority Guide",
   badge: "v0.0.1",
   links: [
+    { text: "Home", href: "index.html" },
     { text: "Hero", href: "blocco_hero.html" },
     { text: "Banner", href: "blocco_banner.html" },
     { text: "Card", href: "blocco_card.html" },
@@ -32,6 +33,7 @@ function getActivePage() {
   if (path.includes('blocco_banner')) return 'blocco_banner.html';
   if (path.includes('blocco_card')) return 'blocco_card.html';
   if (path.includes('docs')) return 'docs.html';
+  if (path.includes('index') || path === '/' || path.endsWith('/')) return 'index.html';
   return '';
 }
 
