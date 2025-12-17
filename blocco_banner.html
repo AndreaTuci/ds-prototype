@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blocco Banner - Priority Guide</title>
+<link rel="stylesheet" href="ds_styles.css" />
+<script src="header.js"></script>
+<script src="blocco_banner.js" defer></script>
+</head>
+<body>
+<div id="header-root"></div>
+
+<main>
+  <h1>Blocco Banner — Priority Guide</h1>
+
+  <!-- VARIANTE 1: STANDARD -->
+  <section aria-labelledby="b1">
+    <div class="section-title"><strong id="b1">Standard</strong> — banner base</div>
+    <div data-banner-id="banner-standard"></div>
+  </section>
+
+  <!-- VARIANTE 2: COMPACT + REVERSE -->
+  <section aria-labelledby="b2">
+    <div class="section-title"><strong id="b2">Compatto / Invertito</strong> — riduce informazioni e scambia posizioni con classe</div>
+    <div data-banner-id="banner-compact"></div>
+  </section>
+
+  <!-- VARIANTE 3: FEATURED -->
+  <section aria-labelledby="b3">
+    <div class="section-title"><strong id="b3">Featured</strong> — versione enfatizzata con badge e overlay</div>
+    <div data-banner-id="banner-featured"></div>
+  </section>
+
+</main>
+
+<!-- Pannello Editor -->
+<button class="editor-panel__toggle" onclick="document.querySelector('.editor-panel').classList.toggle('open')">
+  📋 Data / Schema
+</button>
+
+<aside class="editor-panel">
+  <div class="editor-panel__section">
+    <h3>
+      <span>Data (bannerData) — Live Edit</span>
+      <button id="copy-data" class="editor-panel__copy-btn">📋 Copy</button>
+    </h3>
+    <div id="editor-error" class="editor-panel__error"></div>
+    <div class="editor-panel__actions">
+      <button onclick="location.reload()" class="editor-panel__btn">↻ Reset</button>
+    </div>
+    <textarea id="editor-data" spellcheck="false"></textarea>
+  </div>
+  
+  <div class="editor-panel__section">
+    <h3>
+      <span>Schema (bannerSchema) — Read Only</span>
+      <button id="copy-schema" class="editor-panel__copy-btn">📋 Copy</button>
+    </h3>
+    <pre id="editor-schema"></pre>
+  </div>
+</aside>
+</body>
+</html>
+

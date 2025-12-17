@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Documentazione - DS Priority Guide</title>
+<link rel="stylesheet" href="ds_styles.css" />
+<script src="header.js"></script>
+<style>
+  .docs {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg) var(--spacing-2xl);
+  }
+
+  .docs h1 {
+    font-size: 28px;
+    margin: 0 0 var(--spacing-lg) 0;
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--gray-300);
+  }
+
+  .docs h2 {
+    font-size: 20px;
+    margin: var(--spacing-2xl) 0 var(--spacing-md) 0;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--gray-200);
+  }
+
+  .docs h3 {
+    font-size: 16px;
+    margin: var(--spacing-xl) 0 var(--spacing-sm) 0;
+    color: var(--gray-800);
+  }
+
+  .docs h4 {
+    font-size: 14px;
+    margin: var(--spacing-lg) 0 var(--spacing-xs) 0;
+    font-weight: 600;
+  }
+
+  .docs p {
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.6;
+  }
+
+  .docs ul, .docs ol {
+    margin: 0 0 var(--spacing-md) 0;
+    padding-left: var(--spacing-xl);
+    line-height: 1.6;
+  }
+
+  .docs li {
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .docs code {
+    background: var(--gray-200);
+    padding: 2px 6px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 13px;
+    border: 1px solid var(--gray-300);
+  }
+
+  .docs pre {
+    background: var(--gray-100);
+    padding: var(--spacing-md);
+    border: 1px solid var(--gray-300);
+    overflow-x: auto;
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 13px;
+  }
+
+  .docs pre code {
+    background: none;
+    padding: 0;
+    border: none;
+  }
+
+  .docs strong {
+    font-weight: 600;
+    color: var(--gray-900);
+  }
+
+  .docs em {
+    font-style: italic;
+    color: var(--gray-700);
+  }
+
+  .docs hr {
+    border: none;
+    border-top: 1px solid var(--gray-300);
+    margin: var(--spacing-2xl) 0;
+  }
+
+  .docs blockquote {
+    border-left: 3px solid var(--gray-400);
+    padding-left: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    color: var(--gray-700);
+  }
+
+  .docs-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    margin-bottom: var(--spacing-lg);
+    font-size: 13px;
+    color: var(--gray-600);
+    border-bottom: 1px solid var(--gray-200);
+  }
+</style>
+</head>
+<body>
+<div id="header-root"></div>
+
+<main class="docs">
+  <h1>Design System — Priority Guide</h1>
+
+  <div class="docs-meta">
+    <div><strong>Versione:</strong> 0.0.1</div>
+    <div><strong>Data:</strong> Dicembre 2025</div>
+    <div><strong>Licenza:</strong> Uso interno</div>
+  </div>
+
+  <p>Sistema di componenti minimalista per rappresentare la struttura logica dei blocchi in un approccio content-first. Lo stile visivo viene volutamente ridotto al minimo per concentrarsi sulla gerarchia dell'informazione e sulla priorità dei contenuti.</p>
+
+  <h2>Filosofia</h2>
+  <ul>
+    <li><strong>Content-first</strong>: la struttura dei contenuti ha priorità sullo stile</li>
+    <li><strong>Priority guide</strong>: rappresenta gerarchie e priorità, non design finale</li>
+    <li><strong>Minimalismo</strong>: scala di grigi, padding minimi, angoli squadrati, zero decorazioni</li>
+    <li><strong>Modularità</strong>: le varianti si ottengono aggiungendo classi CSS, senza modificare il markup</li>
+  </ul>
+
+  <h2>Struttura del Sistema</h2>
+  <pre><code>ds_styles.css          → CSS centralizzato con tutti gli stili
+header.js              → Header con navigazione e gestione varianti
+blocco_hero.html       → Blocco Hero (header con CTA prominente)
+blocco_banner.html     → Blocco Banner (prodotto/offerta con media)
+blocco_card.html       → Blocco Card (griglia di contenuti)
+blocco_hero.js         → Dati e logica Hero
+blocco_banner.js       → Dati e logica Banner
+blocco_card.js         → Dati e logica Card</code></pre>
+
+  <h2>Blocchi Disponibili</h2>
+
+  <h3>1. Hero</h3>
+  <p>Blocco principale per header, landing page, chiamate all'azione prominenti.</p>
+  
+  <h4>Struttura:</h4>
+  <ul>
+    <li><code>hero__left</code> → contenuto testuale (eyebrow, title, lead, CTA)</li>
+    <li><code>hero__media</code> → area media/immagine</li>
+    <li><code>hero__kpis</code> → metriche/statistiche (opzionale)</li>
+  </ul>
+
+  <h4>Varianti:</h4>
+  <ul>
+    <li><code>.hero</code> — standard (2 colonne: contenuto + media 400px)</li>
+    <li><code>.hero--compact</code> — versione ridotta (media 260px, lead nascosto)</li>
+    <li><code>.hero--reverse</code> — inverte posizione contenuto/media</li>
+    <li><code>.hero--featured</code> — enfatizzata (media 480px, border doppio, badge)</li>
+  </ul>
+
+  <h3>2. Banner</h3>
+  <p>Blocco per promozioni, prodotti, annunci con CTA.</p>
+  
+  <h4>Struttura:</h4>
+  <ul>
+    <li><code>banner__content</code> → testo (eyebrow, title, desc, price, CTA)</li>
+    <li><code>banner__media</code> → area media/immagine</li>
+    <li><code>overlay-price</code> → prezzo sovrapposto (visibile solo in featured)</li>
+  </ul>
+
+  <h4>Varianti:</h4>
+  <ul>
+    <li><code>.banner</code> — standard (2 colonne: contenuto + media 280px)</li>
+    <li><code>.banner--compact</code> — versione ridotta (media 140px, desc nascosta)</li>
+    <li><code>.banner--reverse</code> — inverte posizione contenuto/media</li>
+    <li><code>.banner--featured</code> — enfatizzata (media 340px, border doppio, badge, overlay)</li>
+  </ul>
+
+  <h3>3. Card</h3>
+  <p>Blocco per griglie di contenuti (articoli, prodotti, anteprime).</p>
+  
+  <h4>Struttura:</h4>
+  <ul>
+    <li><code>card__media</code> → area media/immagine</li>
+    <li><code>card__body</code> → contenuto (title, desc, meta, CTA)</li>
+    <li><code>badge</code> → etichetta (visibile solo in featured)</li>
+  </ul>
+
+  <h4>Varianti:</h4>
+  <ul>
+    <li><code>.cards</code> — standard (griglia responsive, card verticali)</li>
+    <li><code>.cards--compact</code> — card orizzontali compatte</li>
+    <li><code>.cards--reverse</code> — inverte media e contenuto (card orizzontali invertite)</li>
+    <li><code>.cards--featured</code> — card più grandi con badge visibili</li>
+  </ul>
+
+  <h2>Come Usare le Varianti</h2>
+
+  <h3>Logica delle Varianti</h3>
+  <p>Le varianti <strong>non richiedono modifiche al markup delle card individuali</strong>. Si applicano al container aggiungendo classi CSS:</p>
+
+  <pre><code>&lt;!-- Standard --&gt;
+&lt;div class="hero"&gt;...&lt;/div&gt;
+
+&lt;!-- Compact --&gt;
+&lt;div class="hero hero--compact"&gt;...&lt;/div&gt;
+
+&lt;!-- Reverse (scambia posizione elementi) --&gt;
+&lt;div class="hero hero--reverse"&gt;...&lt;/div&gt;
+
+&lt;!-- Combinazioni --&gt;
+&lt;div class="hero hero--compact hero--reverse"&gt;...&lt;/div&gt;
+
+&lt;!-- Featured --&gt;
+&lt;div class="hero hero--featured"&gt;...&lt;/div&gt;</code></pre>
+
+  <h3>Effort delle Varianti</h3>
+  <p>Ogni variante richiede circa <strong>1/3 dello sforzo</strong> del blocco base:</p>
+  <ul>
+    <li><strong>Base</strong>: definisce tutta la struttura, layout, elementi</li>
+    <li><strong>Variante</strong>: modifica solo <code>grid-template-columns</code>, dimensioni, visibilità di alcuni elementi</li>
+  </ul>
+
+  <h2>Sistema di Token CSS</h2>
+  <pre><code>/* Colori (scala di grigi) */
+--gray-50 a --gray-900
+
+/* Spaziature */
+--spacing-xs: 4px
+--spacing-sm: 8px
+--spacing-md: 12px
+--spacing-lg: 16px
+--spacing-xl: 20px
+--spacing-2xl: 24px</code></pre>
+
+  <h2>Elementi Comuni</h2>
+
+  <h3>Bottoni</h3>
+  <pre><code>&lt;a class="btn" href="#"&gt;Azione primaria&lt;/a&gt;
+&lt;a class="btn btn--muted" href="#"&gt;Azione secondaria&lt;/a&gt;</code></pre>
+
+  <h3>Badge</h3>
+  <pre><code>&lt;span class="badge"&gt;NOVITÀ&lt;/span&gt;</code></pre>
+
+  <h3>Overlay Price</h3>
+  <pre><code>&lt;div class="overlay-price"&gt;€99,00&lt;/div&gt;
+&lt;!-- Visibile solo in .banner--featured --&gt;</code></pre>
+
+  <h2>Editor Dati</h2>
+  <p>Ogni pagina include un pannello editor laterale accessibile tramite il bottone <strong>📋 Data / Schema</strong> che permette di:</p>
+  <ul>
+    <li><strong>Modificare i dati in tempo reale</strong> (live editing con debounce 500ms)</li>
+    <li><strong>Copiare JSON</strong> di dati e schema tramite bottoni dedicati</li>
+    <li><strong>Validazione errori</strong> con feedback immediato</li>
+    <li><strong>Reset</strong> per tornare ai dati originali</li>
+  </ul>
+
+  <h2>Responsive</h2>
+  <p>Tutti i blocchi sono responsive. Su mobile (<code>max-width: 768px</code>):</p>
+  <ul>
+    <li>Layout a colonna singola</li>
+    <li>Card compact/reverse tornano verticali</li>
+    <li>Dimensioni media ottimizzate per mobile</li>
+    <li>Header con navigazione verticale</li>
+  </ul>
+
+  <h2>Best Practices</h2>
+  <ol>
+    <li><strong>Non aggiungere stili inline</strong> — usa le classi CSS esistenti</li>
+    <li><strong>Non modificare markup per varianti</strong> — aggiungi classi al container</li>
+    <li><strong>Mantieni gerarchia contenuti</strong> — eyebrow → title → description → CTA</li>
+    <li><strong>Placeholder media</strong> — usa testo semplice come "IMG" o "MEDIA"</li>
+    <li><strong>Accessibilità</strong> — mantieni role, aria-label, aria-labelledby</li>
+  </ol>
+
+  <h2>Estendere il Sistema</h2>
+  <p>Per aggiungere nuove varianti:</p>
+  <ol>
+    <li>Identifica il blocco base</li>
+    <li>Crea classe <code>.blocco--nomevariante</code></li>
+    <li>Override solo le proprietà necessarie (max 5-6 regole CSS)</li>
+    <li>Mantieni effort ~1/3 del blocco base</li>
+  </ol>
+
+  <pre><code>/* Nuova variante minimal */
+.hero--minimal {
+  grid-template-columns: 1fr;  /* override 1 */
+  padding: var(--spacing-md);  /* override 2 */
+}
+
+.hero--minimal .hero__media {
+  display: none;  /* override 3 */
+}</code></pre>
+
+  <h2>Note di Implementazione</h2>
+  <ul>
+    <li>Il sistema è <strong>agnostic rispetto al framework</strong>: HTML/CSS puro</li>
+    <li><strong>Nessuna dipendenza JS</strong> per funzionalità base</li>
+    <li>Pronto per integrazione in progetti React, Vue, Svelte, ecc.</li>
+    <li>Gli stili possono essere portati in CSS Modules, Styled Components, Tailwind, ecc.</li>
+  </ul>
+
+  <hr>
+
+  <p style="text-align: center; color: var(--gray-600); font-size: 13px;">
+    <strong>Design System Priority Guide</strong> — Versione 0.0.1 — Dicembre 2025
+  </p>
+
+</main>
+</body>
+</html>

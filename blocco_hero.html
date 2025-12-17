@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blocco Hero - Priority Guide</title>
+<link rel="stylesheet" href="ds_styles.css" />
+<script src="header.js"></script>
+<script src="blocco_hero.js" defer></script>
+</head>
+<body>
+<div id="header-root"></div>
+
+<main>
+  <h1>Blocco Hero — Priority Guide</h1>
+
+  <!-- VARIANTE 1: STANDARD -->
+  <section aria-labelledby="h1">
+    <div class="section-title"><strong id="h1">Standard</strong> — hero base con CTA</div>
+    <div data-hero-id="hero-standard"></div>
+  </section>
+
+  <!-- VARIANTE 2: COMPACT + REVERSE -->
+  <section aria-labelledby="h2">
+    <div class="section-title"><strong id="h2">Compatta / Reverse</strong> — meno testo, layout invertito via classe</div>
+    <div data-hero-id="hero-compact"></div>
+  </section>
+
+  <!-- VARIANTE 3: FEATURED -->
+  <section aria-labelledby="h3">
+    <div class="section-title"><strong id="h3">Featured</strong> — versione enfatizzata con badge</div>
+    <div data-hero-id="hero-featured"></div>
+  </section>
+
+</main>
+
+<!-- Pannello Editor -->
+<button class="editor-panel__toggle" onclick="document.querySelector('.editor-panel').classList.toggle('open')">
+  📋 Data / Schema
+</button>
+
+<aside class="editor-panel">
+  <div class="editor-panel__section">
+    <h3>
+      <span>Data (heroData) — Live Edit</span>
+      <button id="copy-data" class="editor-panel__copy-btn">📋 Copy</button>
+    </h3>
+    <div id="editor-error" class="editor-panel__error"></div>
+    <div class="editor-panel__actions">
+      <button onclick="location.reload()" class="editor-panel__btn">↻ Reset</button>
+    </div>
+    <textarea id="editor-data" spellcheck="false"></textarea>
+  </div>
+  
+  <div class="editor-panel__section">
+    <h3>
+      <span>Schema (heroSchema) — Read Only</span>
+      <button id="copy-schema" class="editor-panel__copy-btn">📋 Copy</button>
+    </h3>
+    <pre id="editor-schema"></pre>
+  </div>
+</aside>
+</body>
+</html>
+
