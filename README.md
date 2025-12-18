@@ -1,4 +1,4 @@
-# Design System — Priority Guide
+# Design System
 
 Sistema di componenti minimalista per rappresentare la struttura logica dei blocchi in un approccio content-first. Lo stile visivo viene volutamente ridotto al minimo per concentrarsi sulla gerarchia dell'informazione e sulla priorità dei contenuti.
 

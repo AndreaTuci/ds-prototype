@@ -1,0 +1,231 @@
+/* ========================================
+   ATF BLOCK (Above The Fold)
+   Full-viewport hero con sfondo
+   ======================================== */
+
+.atf {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: calc(-50vw + 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-300);
+  overflow: hidden;
+}
+
+/* Overlay per temi con immagini */
+.atf[style*="background-image"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.atf[style*="background-image"] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.atf__content {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  padding: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  color: var(--gray-900);
+  text-align: center;
+  align-items: center;
+}
+
+/* Colori chiari per ATF con background image */
+.atf[style*="background-image"] .atf__content {
+  color: white;
+}
+
+.atf__eyebrow {
+  font-size: 12px;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+.atf[style*="background-image"] .atf__eyebrow {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.atf__title {
+  font-size: 56px;
+  line-height: 1.1;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.atf[style*="background-image"] .atf__title {
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.atf__subtitle {
+  font-size: 24px;
+  color: var(--gray-700);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-md);
+  max-width: 700px;
+}
+
+.atf[style*="background-image"] .atf__subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.atf__description {
+  color: var(--gray-600);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.atf[style*="background-image"] .atf__description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.atf__cta-group {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+  justifyvar(--gray-900);
+}
+
+.atf[style*="background-image"] .atf__feature-value {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.atf__feature-label {
+  font-size: 12px;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.atf[style*="background-image"] .atf__feature-label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.atf__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: var(--gray-300);
+  color: var(--gray-900);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--gray-400);
+}
+
+.atf[style*="background-image"] .atf__badge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white rgba(0, 0, 0, 0.3);
+}
+
+.atf__feature-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.atf__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ATF Variant: Compact - ridotta altezza */
+.atf--compact {
+  min-height: 70vh;
+}
+
+.atf--compact .atf__title {
+  font-size: 40px;
+}
+
+.atf--compact .atf__subtitle {
+  font-size: 18px;
+}
+
+.atf--compact .atf__features {
+  display: none;
+}
+
+/* ATF Variant: Left - contenuto allineato a sinistra */
+.atf--left .atf__content {
+  text-align: left;
+  align-items: flex-start;
+  margin-right: auto;
+  margin-left: 0;
+  padding-left: 5vw;
+}
+
+.atf--left .atf__cta-group {
+  justify-content: flex-start;
+}
+
+/* ATF Variant: Dark - overlay più scuro */
+.atf--dark::before {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* ATF Variant: Light - overlay chiaro */
+.atf--light::before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.atf--light .atf__content {
+  color: var(--gray-900);
+}
+
+.atf--light .atf__title,
+.atf--light .atf__feature-value {
+  color: var(--gray-900);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+.atf--light .atf__subtitle,
+.atf--light .atf__description,
+.atf--light .atf__eyebrow,
+.atf--light .atf__feature-label {
+  color: var(--gray-800);
+}
+
+.atf--light .atf__badge {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--gray-900);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}

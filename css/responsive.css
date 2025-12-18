@@ -199,4 +199,68 @@
   body.theme-soft .hero__kpis {
     gap: var(--spacing-sm);
   }
+
+  /* ATF responsive */
+  .atf {
+    min-height: 100svh;
+  }
+
+  .atf__content {
+    padding: var(--spacing-xl) var(--spacing-lg);
+  }
+
+  .atf__title {
+    font-size: 32px;
+  }
+
+  .atf__subtitle {
+    font-size: 16px;
+  }
+
+  .atf__description {
+    font-size: 14px;
+  }
+
+  .atf__cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .atf__cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .atf__features {
+    gap: var(--spacing-lg);
+  }
+
+  .atf__feature-value {
+    font-size: 24px;
+  }
+
+  .atf--left .atf__content {
+    padding-left: var(--spacing-lg);
+    text-align: center;
+    align-items: center;
+  }
+
+  .atf--left .atf__cta-group {
+    justify-content: center;
+  }
+
+  /* ATF tema brutal mobile */
+  body.theme-brutal .atf__title {
+    font-size: 28px;
+    text-shadow: 3px 3px 0 var(--accent-primary), 4px 4px 0 var(--gray-900);
+  }
+
+  body.theme-brutal .atf__badge {
+    transform: rotate(-2deg);
+  }
+
+  /* ATF tema soft mobile */
+  body.theme-soft .atf__title {
+    font-size: 30px;
+  }
 }

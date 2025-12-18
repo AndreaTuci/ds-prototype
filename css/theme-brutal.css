@@ -218,3 +218,53 @@ body.theme-brutal .copy-html-btn:hover {
   box-shadow: 2px 2px 0 var(--gray-900);
   background: var(--accent-tertiary);
 }
+
+/* ATF Theme Brutal */
+body.theme-brutal .atf::before {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5) 10px,
+    rgba(0, 0, 0, 0.6) 10px,
+    rgba(0, 0, 0, 0.6) 20px
+  );
+}
+
+body.theme-brutal .atf__title {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 0.95;
+  text-shadow: 6px 6px 0 var(--accent-primary), 8px 8px 0 var(--gray-900);
+}
+
+body.theme-brutal .atf__subtitle {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+body.theme-brutal .atf__badge {
+  border: 5px solid var(--gray-900);
+  background: var(--accent-primary);
+  color: var(--gray-900);
+  font-weight: 900;
+  transform: rotate(-3deg);
+  box-shadow: 6px 6px 0 var(--accent-tertiary);
+  backdrop-filter: none;
+}
+
+body.theme-brutal .atf__feature-value {
+  font-weight: 900;
+  text-shadow: 4px 4px 0 var(--accent-secondary), 6px 6px 0 var(--gray-900);
+}
+
+body.theme-brutal .btn {
+  box-shadow: 6px 6px 0 var(--accent-tertiary);
+  transform: rotate(-1deg);
+}
+
+body.theme-brutal .btn:hover {
+  transform: rotate(0deg) translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--accent-tertiary);
+}

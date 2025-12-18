@@ -4,6 +4,7 @@ const headerData = {
   badge: "v0.0.1",
   links: [
     { text: "Home", href: "index.html" },
+    { text: "ATF", href: "blocco_atf.html" },
     { text: "Hero", href: "blocco_hero.html" },
     { text: "Banner", href: "blocco_banner.html" },
     { text: "Card", href: "blocco_card.html" },
@@ -29,6 +30,7 @@ function setHeaderVariant(variant) {
 // Determina pagina attiva
 function getActivePage() {
   const path = window.location.pathname;
+  if (path.includes('blocco_atf')) return 'blocco_atf.html';
   if (path.includes('blocco_hero')) return 'blocco_hero.html';
   if (path.includes('blocco_banner')) return 'blocco_banner.html';
   if (path.includes('blocco_card')) return 'blocco_card.html';

@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Blocco Card</title>
+<title>Blocco ATF</title>
 <!-- CSS Modular Structure -->
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/variables.css" />
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/header.css" />
-<link rel="stylesheet" href="css/card.css" />
+<link rel="stylesheet" href="css/atf.css" />
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/editor.css" />
 <link rel="stylesheet" href="css/theme-soft.css" />
@@ -18,33 +18,56 @@
 <link rel="stylesheet" href="css/responsive.css" />
 <script src="header.js"></script>
 <script src="theme-switcher.js"></script>
-<script src="blocco_card.js" defer></script>
+<script src="blocco_atf.js" defer></script>
 </head>
 <body>
 <div id="header-root"></div>
 
 <main>
-  <h1>Blocco Card</h1>
+  <h1>Blocco ATF (Above The Fold)</h1>
 
   <!-- VARIANTE 1: STANDARD -->
-  <section aria-labelledby="s1">
-    <div class="section-title"><strong id="s1">Standard</strong> — blocco base</div>
-    <div data-cards-id="cards-standard"></div>
+  <section aria-labelledby="a1">
+    <div class="section-title"><strong id="a1">Standard</strong> — ATF completo con features</div>
+    <div data-atf-id="atf-standard"></div>
   </section>
 
-  <!-- VARIANTE 2: COMPACT + SWAP -->
-  <section aria-labelledby="s2">
-    <div class="section-title"><strong id="s2">Compatta / Swap</strong> — cambia layout senza toccare il markup delle card</div>
-    <div data-cards-id="cards-compact"></div>
+  <!-- VARIANTE 2: COMPACT -->
+  <section aria-labelledby="a2">
+    <div class="section-title"><strong id="a2">Compact</strong> — versione condensata</div>
+    <div data-atf-id="atf-compact"></div>
   </section>
 
-  <!-- VARIANTE 3: FEATURED -->
-  <section aria-labelledby="s3">
-    <div class="section-title"><strong id="s3">Featured</strong> — versione enfatizzata con badge</div>
-    <div data-cards-id="cards-featured"></div>
+  <!-- VARIANTE 3: LEFT ALIGNED -->
+  <section aria-labelledby="a3">
+    <div class="section-title"><strong id="a3">Left Aligned</strong> — contenuto a sinistra</div>
+    <div data-atf-id="atf-left"></div>
   </section>
 
+  <!-- VARIANTE 4: DARK OVERLAY -->
+  <section aria-labelledby="a4">
+    <div class="section-title"><strong id="a4">Dark Overlay</strong> — overlay più scuro</div>
+    <div data-atf-id="atf-dark"></div>
+  </section>
+
+  <!-- VARIANTE 5: LIGHT OVERLAY -->
+  <section aria-labelledby="a5">
+    <div class="section-title"><strong id="a5">Light Overlay</strong> — overlay chiaro per bg scuri</div>
+    <div data-atf-id="atf-light"></div>
+  </section>
 </main>
+
+<!-- EDITOR PANEL -->
+<div class="editor-panel" id="editor-panel">
+  <h3>Schema Blocco ATF <button class="editor-panel__copy-btn" id="copy-schema">📋 Copy</button></h3>
+  <pre id="editor-schema"></pre>
+
+  <div class="editor-panel__section">
+    <h3>Live Data Editor <button class="editor-panel__copy-btn" id="copy-data">📋 Copy</button></h3>
+    <div class="editor-panel__error" id="editor-error"></div>
+    <textarea id="editor-data" aria-label="Edit ATF data"></textarea>
+  </div>
+</div>
 
 <!-- Pannello Editor -->
 <button class="editor-panel__toggle" id="editor-toggle" onclick="toggleEditorPanel()">
@@ -73,27 +96,11 @@ function toggleEditorPanel() {
 }
 </script>
 
-<aside class="editor-panel">
-  <div class="editor-panel__section">
-    <h3>
-      <span>Data (cardData) — Live Edit</span>
-      <button id="copy-data" class="editor-panel__copy-btn">📋 Copy</button>
-    </h3>
-    <div id="editor-error" class="editor-panel__error"></div>
-    <div class="editor-panel__actions">
-      <button onclick="location.reload()" class="editor-panel__btn">↻ Reset</button>
-    </div>
-    <textarea id="editor-data" spellcheck="false"></textarea>
-  </div>
-  
-  <div class="editor-panel__section">
-    <h3>
-      <span>Schema (cardSchema) — Read Only</span>
-      <button id="copy-schema" class="editor-panel__copy-btn">📋 Copy</button>
-    </h3>
-    <pre id="editor-schema"></pre>
-  </div>
-</aside>
+<div class="theme-switcher">
+  <div class="theme-dot theme-dot--neutral is-active" data-theme="neutral" title="Neutral Theme"></div>
+  <div class="theme-dot theme-dot--soft" data-theme="soft" title="Soft Theme"></div>
+  <div class="theme-dot theme-dot--brutal" data-theme="brutal" title="Brutal Theme"></div>
+</div>
+
 </body>
 </html>
-
