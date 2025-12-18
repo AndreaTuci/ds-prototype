@@ -1,0 +1,117 @@
+/* ========================================
+   BANNER BLOCK
+   ======================================== */
+
+.banner {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: var(--spacing-lg);
+  align-items: center;
+  background: var(--gray-100);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--gray-200);
+}
+
+.banner__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.banner__eyebrow {
+  font-size: 11px;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.banner__title {
+  font-size: 16px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.banner__desc {
+  color: var(--gray-700);
+  font-size: 13px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.banner__meta {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  font-size: 12px;
+  color: var(--gray-600);
+  margin-top: var(--spacing-sm);
+}
+
+.banner__price {
+  font-weight: 700;
+  color: var(--gray-900);
+  font-size: 16px;
+}
+
+.banner__media {
+  width: 100%;
+  height: 140px;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  font-size: 14px;
+  border: 1px solid var(--gray-300);
+}
+
+/* Banner Variant: Compact */
+.banner--compact {
+  grid-template-columns: 1fr 140px;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+
+.banner--compact .banner__title {
+  font-size: 14px;
+}
+
+.banner--compact .banner__desc {
+  display: none;
+}
+
+.banner--compact .banner__media {
+  height: 100px;
+}
+
+.banner--compact .banner__price {
+  font-size: 14px;
+}
+
+/* Banner Variant: Reverse */
+.banner--reverse {
+  grid-template-columns: 280px 1fr;
+}
+
+.banner--reverse.banner--compact {
+  grid-template-columns: 140px 1fr;
+}
+
+/* Banner Variant: Featured */
+.banner--featured {
+  grid-template-columns: 1fr 340px;
+  padding: var(--spacing-xl);
+  border: 2px solid var(--gray-300);
+}
+
+.banner--featured .banner__title {
+  font-size: 18px;
+}
+
+.banner--featured .banner__desc {
+  display: block;
+  font-size: 14px;
+}
+
+.banner--featured .banner__media {
+  height: 200px;
+  position: relative;
+}

@@ -1,0 +1,46 @@
+/* ==========================================
+   THEME SWITCHER
+   ========================================== */
+
+.theme-switcher {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 10000;
+  padding: 8px;
+}
+
+.theme-dot {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.theme-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dot.is-active {
+  border-width: 4px;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-dot--soft {
+  background: #f0c7ad;
+}
+
+.theme-dot--brutal {
+  background: linear-gradient(135deg, #ff0080 0%, #ffff00 100%);
+}
+
+.theme-dot--neutral {
+  background: #d4d4d4;
+}

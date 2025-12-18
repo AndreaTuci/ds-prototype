@@ -1,0 +1,131 @@
+/* ========================================
+   COMMON ELEMENTS
+   ======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--gray-900);
+  background: var(--gray-900);
+  color: var(--gray-50);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.btn--muted {
+  background: transparent;
+  color: var(--gray-900);
+  border: 1px solid var(--gray-400);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--gray-300);
+  color: var(--gray-900);
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.overlay-price {
+  display: none;
+  position: absolute;
+  right: var(--spacing-sm);
+  bottom: var(--spacing-sm);
+  background: var(--gray-900);
+  color: var(--gray-50);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.banner--featured .overlay-price {
+  display: block;
+}
+
+/* ========================================
+   COPY HTML BUTTON
+   ======================================== */
+
+[data-hero-id],
+[data-banner-id],
+[data-cards-id] {
+  position: relative;
+}
+
+.copy-html-btn {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gray-800);
+  color: var(--gray-100);
+  border: 2px solid var(--gray-900);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.copy-html-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.copy-html-btn:hover {
+  background: var(--gray-900);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.copy-html-btn.copied {
+  background: #22c55e;
+  border-color: #16a34a;
+}
+
+.copy-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--gray-900);
+  color: var(--gray-100);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 101;
+}
+
+.copy-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--gray-900);
+}
+
+.copy-tooltip.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

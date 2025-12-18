@@ -1,0 +1,112 @@
+/* ========================================
+   CARD BLOCK
+   ======================================== */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  min-height: 160px;
+}
+
+.card__media {
+  flex: 0 0 120px;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  color: var(--gray-400);
+  font-size: 14px;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.card__body {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1 1 auto;
+}
+
+.card__title {
+  font-size: 14px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.card__desc {
+  color: var(--gray-700);
+  font-size: 12px;
+  flex: 1 1 auto;
+  margin-bottom: var(--spacing-xs);
+}
+
+.card__meta {
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: center;
+  font-size: 11px;
+  color: var(--gray-600);
+  margin-top: auto;
+}
+
+/* Card Variant: Compact */
+.cards--compact {
+  gap: var(--spacing-md);
+}
+
+.cards--compact .card {
+  flex-direction: row;
+  min-height: 100px;
+}
+
+.cards--compact .card__media {
+  flex: 0 0 100px;
+  height: 100%;
+  width: 100px;
+  border-bottom: none;
+  border-right: 1px solid var(--gray-300);
+}
+
+.cards--compact .card__body {
+  padding: var(--spacing-sm);
+}
+
+/* Card Variant: Reverse */
+.cards--reverse .card {
+  flex-direction: row-reverse;
+}
+
+.cards--reverse .card__media {
+  border-right: none;
+  border-left: 1px solid var(--gray-300);
+}
+
+/* Card Variant: Featured */
+.cards--featured .card {
+  min-height: 200px;
+  border: 2px solid var(--gray-300);
+}
+
+.cards--featured .card__media {
+  height: 160px;
+  flex: 0 0 160px;
+}
+
+.cards--featured .card__title {
+  font-size: 16px;
+}
+
+.cards--featured .card__desc {
+  color: var(--gray-700);
+  font-size: 13px;
+}
