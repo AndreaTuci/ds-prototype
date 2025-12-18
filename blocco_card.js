@@ -79,6 +79,40 @@ const cardData = [
   }
 ];
 
+// Genera template HTML con variabili in formato {data.prop}
+function getCardsTemplate(data) {
+  let template = `<div class="${data.variant}" role="list">`;
+  
+  data.items.forEach((item) => {
+    const hasBadge = item.badge;
+    
+    template += `
+  <article class="card" role="listitem">
+    <div class="card__media">{item.media}</div>
+    <div class="card__body">`;
+    
+    if (hasBadge) {
+      template += `
+      <span class="badge">{item.badge}</span>`;
+    }
+    
+    template += `
+      <h3 class="card__title">{item.title}</h3>
+      <p class="card__desc">{item.desc}</p>
+      <div class="card__meta">
+        <span>{item.meta}</span>
+        <a class="btn" href="{item.cta.href}">{item.cta.text}</a>
+      </div>
+    </div>
+  </article>`;
+  });
+  
+  template += `
+</div>`;
+  
+  return template;
+}
+
 // Funzione di rendering
 function renderCards(data) {
   const cardsHtml = data.items.map(item => {
@@ -101,10 +135,36 @@ function renderCards(data) {
   }).join('');
   
   return `
+    <button class="copy-html-btn" onclick="copyCardsHTML(event, '${data.id}')" title="Copy HTML Template" aria-label="Copy HTML">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+      </svg>
+      <span class="copy-tooltip">Copied!</span>
+    </button>
     <div class="${data.variant}" role="list">
       ${cardsHtml}
     </div>
   `;
+}
+
+// Copia HTML template
+function copyCardsHTML(evt, cardsId) {
+  const data = cardData.find(c => c.id === cardsId);
+  if (!data) return;
+  
+  const template = getCardsTemplate(data);
+  const btn = evt.currentTarget;
+  const tooltip = btn.querySelector('.copy-tooltip');
+  
+  navigator.clipboard.writeText(template).then(() => {
+    btn.classList.add('copied');
+    tooltip.classList.add('show');
+    
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      tooltip.classList.remove('show');
+    }, 1500);
+  });
 }
 
 // Rendering di tutti i blocchi Card

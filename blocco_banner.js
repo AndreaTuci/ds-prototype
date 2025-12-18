@@ -47,12 +47,68 @@ const bannerData = [
   }
 ];
 
+// Genera template HTML con variabili in formato {data.prop}
+function getBannerTemplate(data) {
+  const hasBadge = data.badge;
+  const hasOverlay = data.overlayPrice;
+  
+  let template = `<div class="${data.variant}" role="region" aria-label="Banner">
+  <div class="banner__content">`;
+  
+  if (hasBadge) {
+    template += `
+    <span class="badge">{data.badge}</span>`;
+  }
+  
+  if (data.eyebrow) {
+    template += `
+    <div class="banner__eyebrow">{data.eyebrow}</div>`;
+  }
+  
+  template += `
+
+    <h2 class="banner__title">{data.title}</h2>`;
+  
+  if (data.desc) {
+    template += `
+    <p class="banner__desc">{data.desc}</p>`;
+  }
+  
+  template += `
+
+    <div class="banner__meta">
+      <div class="banner__price">{data.price}</div>
+      <a class="btn" href="{data.cta.href}" aria-label="{data.cta.text}">{data.cta.text}</a>
+    </div>
+  </div>
+
+  <div class="banner__media" aria-hidden="true">
+    {data.media}`;
+  
+  if (hasOverlay) {
+    template += `
+    <div class="overlay-price" aria-hidden="true">{data.overlayPrice}</div>`;
+  }
+  
+  template += `
+  </div>
+</div>`;
+  
+  return template;
+}
+
 // Funzione di rendering
 function renderBanner(data) {
   const hasBadge = data.badge;
   const hasOverlay = data.overlayPrice;
   
   return `
+    <button class="copy-html-btn" onclick="copyBannerHTML(event, '${data.id}')" title="Copy HTML Template" aria-label="Copy HTML">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+      </svg>
+      <span class="copy-tooltip">Copied!</span>
+    </button>
     <div class="${data.variant}" role="region" aria-label="Banner ${data.id}">
       <div class="banner__content">
         ${hasBadge ? `<span class="badge">${data.badge}</span>` : ''}
@@ -73,6 +129,26 @@ function renderBanner(data) {
       </div>
     </div>
   `;
+}
+
+// Copia HTML template
+function copyBannerHTML(evt, bannerId) {
+  const data = bannerData.find(b => b.id === bannerId);
+  if (!data) return;
+  
+  const template = getBannerTemplate(data);
+  const btn = evt.currentTarget;
+  const tooltip = btn.querySelector('.copy-tooltip');
+  
+  navigator.clipboard.writeText(template).then(() => {
+    btn.classList.add('copied');
+    tooltip.classList.add('show');
+    
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      tooltip.classList.remove('show');
+    }, 1500);
+  });
 }
 
 // Rendering di tutti i blocchi Banner

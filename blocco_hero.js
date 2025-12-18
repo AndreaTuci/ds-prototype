@@ -59,12 +59,78 @@ const heroData = [
   }
 ];
 
+// Genera template HTML con variabili in formato {data.prop}
+function getHeroTemplate(data) {
+  const hasKpis = data.kpis && data.kpis.length > 0;
+  const hasBadge = data.badge;
+  
+  let template = `<header class="${data.variant}" role="region" aria-label="Hero">
+  <div class="hero__left">`;
+  
+  if (hasBadge) {
+    template += `
+    <div class="badge">{data.badge}</div>`;
+  }
+  
+  if (data.eyebrow) {
+    template += `
+    <div class="hero__eyebrow">{data.eyebrow}</div>`;
+  }
+  
+  template += `
+    <h2 class="hero__title">{data.title}</h2>`;
+  
+  if (data.lead) {
+    template += `
+    <p class="hero__lead">{data.lead}</p>`;
+  }
+  
+  template += `
+
+    <div class="hero__cta-group">
+      <a class="btn" href="{data.cta.primary.href}" aria-label="{data.cta.primary.text}">{data.cta.primary.text}</a>`;
+  
+  if (data.cta.secondary) {
+    template += `
+      <a class="btn btn--muted" href="{data.cta.secondary.href}" aria-label="{data.cta.secondary.text}">{data.cta.secondary.text}</a>`;
+  }
+  
+  template += `
+    </div>`;
+  
+  if (hasKpis) {
+    template += `
+
+    <div class="hero__kpis">`;
+    data.kpis.forEach(() => {
+      template += `
+      <div><strong>{kpi.value}</strong> {kpi.label}</div>`;
+    });
+    template += `
+    </div>`;
+  }
+  
+  template += `
+  </div>
+
+  <div class="hero__media" aria-hidden="true">{data.media}</div>
+</header>`;
+  
+  return template;
+}
+
 // Funzione di rendering
 function renderHero(data) {
   const hasKpis = data.kpis && data.kpis.length > 0;
   const hasBadge = data.badge;
   
   return `
+    <button class="copy-html-btn" onclick="copyHeroHTML(event, '${data.id}')" title="Copy HTML Template" aria-label="Copy HTML">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+      </svg>
+      <span class="copy-tooltip">Copied!</span>
+    </button>
     <header class="${data.variant}" role="region" aria-label="Hero ${data.id}">
       <div class="hero__left">
         ${hasBadge ? `<div class="badge">${data.badge}</div>` : ''}
@@ -87,6 +153,26 @@ function renderHero(data) {
       <div class="hero__media" aria-hidden="true">${data.media}</div>
     </header>
   `;
+}
+
+// Copia HTML template
+function copyHeroHTML(evt, heroId) {
+  const data = heroData.find(h => h.id === heroId);
+  if (!data) return;
+  
+  const template = getHeroTemplate(data);
+  const btn = evt.currentTarget;
+  const tooltip = btn.querySelector('.copy-tooltip');
+  
+  navigator.clipboard.writeText(template).then(() => {
+    btn.classList.add('copied');
+    tooltip.classList.add('show');
+    
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      tooltip.classList.remove('show');
+    }, 1500);
+  });
 }
 
 // Rendering di tutti i blocchi Hero
