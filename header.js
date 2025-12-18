@@ -8,6 +8,7 @@ const headerData = {
     { text: "Hero", href: "blocco_hero.html" },
     { text: "Banner", href: "blocco_banner.html" },
     { text: "Card", href: "blocco_card.html" },
+    { text: "Content", href: "blocco_content.html" },
     { text: "Docs", href: "docs.html" }
   ],
   variants: [

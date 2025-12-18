@@ -99,6 +99,44 @@ const atfData = [
       { value: "50%", label: "Sconto lancio" },
       { value: "3 mesi", label: "Gratis" }
     ]
+  },
+  {
+    id: "atf-soft",
+    variant: "atf",
+    eyebrow: "Bellezza Naturale",
+    badge: "Bio & Vegan",
+    title: "La tua pelle merita il meglio",
+    subtitle: "Cosmetici naturali che rispettano la tua bellezza autentica",
+    description: "Ingredienti biologici certificati, formulazioni delicate e sostenibilità in ogni prodotto. La natura al servizio della tua skincare routine.",
+    cta: {
+      primary: { text: "Scopri la linea", href: "#" },
+      secondary: { text: "Shop online", href: "#" },
+      tertiary: { text: "Leggi di più →", href: "#" }
+    },
+    features: [
+      { value: "100%", label: "Naturale" },
+      { value: "0%", label: "Parabeni" },
+      { value: "Cruelty", label: "Free" }
+    ]
+  },
+  {
+    id: "atf-brutal",
+    variant: "atf atf--dark",
+    badge: "Live Tour 2025",
+    eyebrow: "Rock Legends",
+    title: "Turn it up to eleven",
+    subtitle: "L'energia del rock che scuote le fondamenta",
+    description: "50 anni di storia, 30 album, milioni di fan. La leggenda continua con un tour mondiale esplosivo che farà tremare gli stadi.",
+    cta: {
+      primary: { text: "Biglietti", href: "#" },
+      secondary: { text: "Date tour", href: "#" },
+      tertiary: { text: "Ascolta ora →", href: "#" }
+    },
+    features: [
+      { value: "50+", label: "Date" },
+      { value: "12", label: "Paesi" },
+      { value: "500K", label: "Fans" }
+    ]
   }
 ];
 
@@ -176,7 +214,7 @@ function renderAtf(data) {
   const hasFeatures = data.features && data.features.length > 0;
   const hasBadge = data.badge;
   const hasDescription = data.description;
-  const bgStyle = data.background ? ` style="background-image: url('${data.background}')"` : '';
+  
   return `
     <button class="copy-html-btn" onclick="copyAtfHTML(event, '${data.id}')" title="Copy HTML Template" aria-label="Copy HTML">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -184,8 +222,7 @@ function renderAtf(data) {
       </svg>
       <span class="copy-tooltip">Copied!</span>
     </button>
-    <section class="${data.variant}" role="region" aria-label="Above the fold ${data.id}"${bgStyle}
-    <section class="${data.variant}" role="region" aria-label="Above the fold ${data.id}" style="background-image: url('${data.background}')">
+    <section class="${data.variant}" role="region" aria-label="Above the fold ${data.id}">
       <div class="atf__content">
         ${hasBadge ? `<div class="atf__badge">${data.badge}</div>` : ''}
         ${data.eyebrow ? `<div class="atf__eyebrow">${data.eyebrow}</div>` : ''}

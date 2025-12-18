@@ -57,7 +57,8 @@
 [data-hero-id],
 [data-banner-id],
 [data-cards-id],
-[data-atf-id] {
+[data-atf-id],
+[data-content-id] {
   position: relative;
 }
 

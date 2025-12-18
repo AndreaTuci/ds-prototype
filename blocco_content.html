@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blocco Content - Priority Guide</title>
+<!-- CSS Modular Structure -->
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/header.css" />
+<link rel="stylesheet" href="css/content.css" />
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/editor.css" />
+<link rel="stylesheet" href="css/theme-soft.css" />
+<link rel="stylesheet" href="css/theme-brutal.css" />
+<link rel="stylesheet" href="css/theme-switcher.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+<script src="header.js"></script>
+<script src="theme-switcher.js"></script>
+<script src="blocco_content.js" defer></script>
+</head>
+<body>
+<div id="header-root"></div>
+
+<main>
+  <h1>Blocco Content — Priority Guide</h1>
+
+  <!-- VARIANTE 1: STANDARD (3 colonne) -->
+  <section aria-labelledby="c1">
+    <div class="section-title"><strong id="c1">Standard</strong> — 3 colonne base</div>
+    <div data-content-id="content-standard"></div>
+  </section>
+
+  <!-- VARIANTE 2: TWO COLUMNS -->
+  <section aria-labelledby="c2">
+    <div class="section-title"><strong id="c2">Two Columns</strong> — 2 colonne con più spazio</div>
+    <div data-content-id="content-two-col"></div>
+  </section>
+
+  <!-- VARIANTE 3: FOUR COLUMNS -->
+  <section aria-labelledby="c3">
+    <div class="section-title"><strong id="c3">Four Columns</strong> — 4 colonne compatte</div>
+    <div data-content-id="content-four-col"></div>
+  </section>
+
+  <!-- VARIANTE 4: ICON STYLE -->
+  <section aria-labelledby="c4">
+    <div class="section-title"><strong id="c4">Icon Style</strong> — con icone circolari</div>
+    <div data-content-id="content-icon"></div>
+  </section>
+
+  <!-- VARIANTE 5: HORIZONTAL -->
+  <section aria-labelledby="c5">
+    <div class="section-title"><strong id="c5">Horizontal</strong> — layout orizzontale per narrativa</div>
+    <div data-content-id="content-horizontal"></div>
+  </section>
+</main>
+
+<!-- EDITOR PANEL -->
+<div class="editor-panel" id="editor-panel">
+  <h3>Schema Blocco Content <button class="editor-panel__copy-btn" id="copy-schema">📋 Copy</button></h3>
+  <pre id="editor-schema"></pre>
+
+  <div class="editor-panel__section">
+    <h3>Live Data Editor <button class="editor-panel__copy-btn" id="copy-data">📋 Copy</button></h3>
+    <div class="editor-panel__error" id="editor-error"></div>
+    <textarea id="editor-data" aria-label="Edit Content data"></textarea>
+  </div>
+</div>
+
+<!-- Pannello Editor -->
+<button class="editor-panel__toggle" id="editor-toggle" onclick="toggleEditorPanel()">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 16px; height: 16px; fill: currentColor; vertical-align: middle; margin-right: 4px;">
+    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+  </svg>
+  <span id="toggle-text">Data / Schema</span>
+</button>
+
+<script>
+function toggleEditorPanel() {
+  const panel = document.querySelector('.editor-panel');
+  const btn = document.getElementById('editor-toggle');
+  const text = document.getElementById('toggle-text');
+  const svg = btn.querySelector('svg');
+  
+  panel.classList.toggle('open');
+  
+  if (panel.classList.contains('open')) {
+    text.textContent = 'Chiudi';
+    svg.innerHTML = '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
+  } else {
+    text.textContent = 'Data / Schema';
+    svg.innerHTML = '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>';
+  }
+}
+</script>
+
+<div class="theme-switcher">
+  <div class="theme-dot theme-dot--neutral is-active" data-theme="neutral" title="Neutral Theme"></div>
+  <div class="theme-dot theme-dot--soft" data-theme="soft" title="Soft Theme"></div>
+  <div class="theme-dot theme-dot--brutal" data-theme="brutal" title="Brutal Theme"></div>
+</div>
+
+</body>
+</html>

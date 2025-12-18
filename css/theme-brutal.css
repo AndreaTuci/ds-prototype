@@ -219,7 +219,89 @@ body.theme-brutal .copy-html-btn:hover {
   background: var(--accent-tertiary);
 }
 
+/* Content Theme Brutal */
+body.theme-brutal .content {
+  border: 5px solid var(--gray-900);
+  box-shadow: 10px 10px 0 var(--gray-900);
+  background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+  transform: rotate(0.5deg);
+}
+
+body.theme-brutal .content:nth-child(even) {
+  background: linear-gradient(135deg, #fff 0%, var(--accent-tertiary) 100%);
+  transform: rotate(-0.5deg);
+}
+
+body.theme-brutal .content__title {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 3px 3px 0 var(--accent-primary);
+}
+
+body.theme-brutal .content__item-media,
+body.theme-brutal .content__item-icon {
+  border: 4px solid var(--gray-900);
+  box-shadow: 4px 4px 0 var(--accent-secondary);
+}
+
+body.theme-brutal .content__item:nth-child(1) .content__item-media {
+  background-image: url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.3) saturate(1.8);
+  color: transparent;
+}
+
+body.theme-brutal .content__item:nth-child(2) .content__item-media {
+  background-image: url('https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.3) saturate(1.8);
+  color: transparent;
+}
+
+body.theme-brutal .content__item:nth-child(3) .content__item-media {
+  background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.3) saturate(1.8);
+  color: transparent;
+}
+
+body.theme-brutal .content__item:nth-child(4) .content__item-media {
+  background-image: url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=600&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: contrast(1.3) saturate(1.8);
+  color: transparent;
+}
+
+body.theme-brutal .content__item-icon {
+  background: var(--accent-primary);
+  color: var(--gray-900);
+  font-weight: 900;
+  transform: rotate(-2deg);
+}
+
+body.theme-brutal .content__item-title {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+body.theme-brutal .content__item-link {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* ATF Theme Brutal */
+body.theme-brutal .atf {
+  background-image: url('https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
 body.theme-brutal .atf::before {
   background: repeating-linear-gradient(
     45deg,
