@@ -826,6 +826,137 @@ section {
     width: 100%;
     margin-left: 0;
   }
+
+  /* Fix tema brutal su mobile */
+  body.theme-brutal .hero,
+  body.theme-brutal .banner,
+  body.theme-brutal .card {
+    transform: rotate(0) !important;
+    box-shadow: 4px 4px 0 var(--gray-900);
+  }
+
+  body.theme-brutal .btn {
+    transform: rotate(0);
+    box-shadow: 3px 3px 0 var(--gray-900);
+    border-width: 3px;
+    padding: 10px 20px;
+  }
+
+  body.theme-brutal .btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--gray-900);
+  }
+
+  body.theme-brutal h1 {
+    font-size: 32px;
+    text-shadow: 2px 2px 0 var(--accent-primary);
+  }
+
+  body.theme-brutal .badge {
+    transform: rotate(0);
+  }
+
+  body.theme-brutal .overlay-price {
+    transform: rotate(0);
+    box-shadow: 2px 2px 0 var(--gray-900);
+    border-width: 3px;
+  }
+
+  body.theme-brutal .copy-html-btn {
+    border-width: 3px;
+    box-shadow: 3px 3px 0 var(--gray-900);
+  }
+
+  body.theme-brutal .copy-html-btn:hover {
+    transform: translateY(-50%) translate(1px, 1px);
+    box-shadow: 2px 2px 0 var(--gray-900);
+  }
+
+  /* Fix tema soft su mobile */
+  body.theme-soft {
+    --spacing-xs: 6px;
+    --spacing-sm: 10px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 28px;
+    --spacing-2xl: 36px;
+    --border-radius: 16px;
+  }
+
+  body.theme-soft .btn {
+    border-radius: 30px;
+    padding: 12px 24px;
+    box-shadow: 0 2px 12px rgba(232, 180, 168, 0.25);
+  }
+
+  body.theme-soft .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(232, 180, 168, 0.3);
+  }
+
+  body.theme-soft .hero,
+  body.theme-soft .banner,
+  body.theme-soft .card {
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  body.theme-soft .badge {
+    border-radius: 30px;
+    padding: 4px 12px;
+    box-shadow: 0 1px 6px rgba(201, 212, 232, 0.3);
+  }
+
+  body.theme-soft h1,
+  body.theme-soft h2,
+  body.theme-soft h3 {
+    font-weight: 300;
+  }
+
+  body.theme-soft .hero__media,
+  body.theme-soft .banner__media,
+  body.theme-soft .card__media {
+    border-radius: 12px;
+  }
+
+  body.theme-soft .header {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Fix specifici per blocco hero tema soft su mobile */
+  body.theme-soft .hero {
+    padding: var(--spacing-md);
+    overflow: hidden;
+  }
+
+  body.theme-soft .hero__left {
+    padding: var(--spacing-sm);
+  }
+
+  body.theme-soft .hero__media {
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  body.theme-soft .hero__title {
+    font-size: 24px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  body.theme-soft .hero__lead {
+    font-size: 14px;
+  }
+
+  body.theme-soft .hero__cta-group {
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+  }
+
+  body.theme-soft .hero__kpis {
+    gap: var(--spacing-sm);
+  }
 }
 
 /* ==========================================
